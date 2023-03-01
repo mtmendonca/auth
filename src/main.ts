@@ -88,6 +88,9 @@ async function main() {
   // Ensure exactly one of workload_identity_provider and credentials_json was
   // provided.
   if (!exactlyOneOf(workloadIdentityProvider, credentialsJSON)) {
+    logInfo(`getInput('workload_identity_provider'): ${getInput('workload_identity_provider')}`);
+    logInfo(`getInput('service_account'): ${getInput('service_account')}`);
+    logInfo(`process.env: ${JSON.stringify(process.env)}`);
     throw new Error(
       'The GitHub Action workflow must specify exactly one of ' +
         '"workload_identity_provider" or "credentials_json"! ' +
